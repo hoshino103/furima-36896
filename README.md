@@ -26,7 +26,7 @@ has_many :purchase_histories
 | category_id         | integer    | null: false                    |
 | status_id           | integer    | null: false                    |
 | shipping_charges_id | integer    | null: false                    |
-| shipment_source_id  | integer    | null: false                    |
+| prefectures_id      | integer    | null: false                    |
 | send_day_id         | integer    | null: false                    |
 | price               | integer    | null: false                    |
 | user                | references | foreign_key: true, null: false |
