@@ -21,12 +21,12 @@ has_many :purchase_histories
 
 | Column              | Type       | Options                        |
 | ------------------- | ---------- | ------------------------------ |
-| name                | text       | null: false                    |
-| text                | string     | null: false                    |
+| name                | string     | null: false                    |
+| item_text           | text       | null: false                    |
 | category_id         | integer    | null: false                    |
 | status_id           | integer    | null: false                    |
-| shipping_charges_id | integer    | null: false                    |
-| prefectures_id      | integer    | null: false                    |
+| shipping_charge_id  | integer    | null: false                    |
+| prefecture_id       | integer    | null: false                    |
 | send_day_id         | integer    | null: false                    |
 | price               | integer    | null: false                    |
 | user                | references | foreign_key: true, null: false |
@@ -55,10 +55,10 @@ has_one :shipping_address
 | Column         | Type       | Options                |
 | -------------- | ---------- | ---------------------- |
 | post_num       | string     | null: false            |
-| prefectures_id | integer    | null: false            |
+| prefecture_id  | integer    | null: false            |
 | municipalities | string     | null: false            |
 | street_number  | string     | null: false            |
-| building_name  | string     | null: false            |
+| building_name  | string     |                        |
 | phone_num      | string     | null: false            |
 
 ## association
