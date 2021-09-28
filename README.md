@@ -52,14 +52,15 @@ has_one :shipping_address
 ## shipping_addresses
 
 
-| Column         | Type       | Options                |
-| -------------- | ---------- | ---------------------- |
-| post_num       | string     | null: false            |
-| prefecture_id  | integer    | null: false            |
-| municipalities | string     | null: false            |
-| street_number  | string     | null: false            |
-| building_name  | string     |                        |
-| phone_num      | string     | null: false            |
+| Column             | Type       | Options                        |
+| ------------------ | ---------- | ------------------------------ |
+| post_num           | string     | null: false                    |
+| prefecture_id      | integer    | null: false                    |
+| municipalities     | string     | null: false                    |
+| street_number      | string     | null: false                    |
+| building_name      | string     |                                |
+| phone_num          | string     | null: false                    |
+| purchase_history   | references | foreign_key: true, null: false |
 
 ## association
 belongs_to :purchase_history

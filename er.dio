@@ -218,7 +218,7 @@
                     </mxGeometry>
                 </mxCell>
                 <mxCell id="320" value="  shipping addresses" style="shape=table;startSize=30;container=1;collapsible=0;childLayout=tableLayout;fixedRows=1;rowLines=0;fontStyle=1;align=center;shadow=1;strokeColor=#000000;" parent="1" vertex="1">
-                    <mxGeometry x="710" y="410" width="230" height="210" as="geometry"/>
+                    <mxGeometry x="710" y="410" width="230" height="240" as="geometry"/>
                 </mxCell>
                 <mxCell id="324" style="shape=partialRectangle;html=1;whiteSpace=wrap;collapsible=0;dropTarget=0;pointerEvents=0;fillColor=none;top=0;left=0;bottom=1;right=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="320" vertex="1">
                     <mxGeometry y="30" width="230" height="30" as="geometry"/>
@@ -272,6 +272,15 @@
                     <mxGeometry width="48" height="30" as="geometry"/>
                 </mxCell>
                 <mxCell id="332" value="phone_num" style="shape=partialRectangle;html=1;whiteSpace=wrap;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;align=left;spacingLeft=6;overflow=hidden;" parent="330" vertex="1">
+                    <mxGeometry x="48" width="182" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="381" style="shape=partialRectangle;html=1;whiteSpace=wrap;collapsible=0;dropTarget=0;pointerEvents=0;fillColor=none;top=0;left=0;bottom=1;right=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="320">
+                    <mxGeometry y="210" width="230" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="382" style="shape=partialRectangle;html=1;whiteSpace=wrap;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;overflow=hidden;" vertex="1" parent="381">
+                    <mxGeometry width="48" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="383" value="&lt;div style=&quot;background-color: rgb(255 , 255 , 255) ; font-family: &amp;#34;menlo&amp;#34; , &amp;#34;monaco&amp;#34; , &amp;#34;courier new&amp;#34; , monospace ; line-height: 18px&quot;&gt;purchase_history&lt;/div&gt;" style="shape=partialRectangle;html=1;whiteSpace=wrap;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;align=left;spacingLeft=6;overflow=hidden;" vertex="1" parent="381">
                     <mxGeometry x="48" width="182" height="30" as="geometry"/>
                 </mxCell>
                 <mxCell id="340" value="" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.annotation_1;align=left;pointerEvents=1;shadow=1;fillColor=none;" parent="1" vertex="1">
