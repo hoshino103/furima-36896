@@ -55,7 +55,7 @@ has_one :shipping_address
 | Column         | Type       | Options                |
 | -------------- | ---------- | ---------------------- |
 | post_num       | string     | null: false            |
-| prefectures    | string     | null: false            |
+| prefectures_id | integer    | null: false            |
 | municipalities | string     | null: false            |
 | street_number  | string     | null: false            |
 | building_name  | string     | null: false            |
