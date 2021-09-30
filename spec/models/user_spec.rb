@@ -6,7 +6,7 @@ RSpec.describe User, type: :model do
   end
   describe 'ユーザー新規登録' do
     context '新規登録できるとき' do
-      it "すべて正しい入力で新規登録できる" do
+      it 'すべて正しい入力で新規登録できる' do
         expect(@user).to be_valid
       end
     end
@@ -46,12 +46,12 @@ RSpec.describe User, type: :model do
         @user.valid?
         expect(@user.errors.full_messages).to include('Password is invalid')
       end
-      it "英字のみでは登録できないこと" do
+      it '英字のみでは登録できないこと' do
         @user.password = 'testtest'
         @user.valid?
         expect(@user.errors.full_messages).to include('Password is invalid')
       end
-      it "全角だと登録できないこと" do
+      it '全角だと登録できないこと' do
         @user.password = 'ｔｅｓｔｔｅｓｔ'
         @user.valid?
         expect(@user.errors.full_messages).to include('Password is invalid')
