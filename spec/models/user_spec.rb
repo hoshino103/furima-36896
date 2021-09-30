@@ -3,7 +3,6 @@ require 'rails_helper'
 RSpec.describe User, type: :model do
   before do
     @user = FactoryBot.build(:user)
-    # @user = FactoryBot.create(:user)
   end
   describe 'ユーザー新規登録' do
     it 'nameが空だと登録できない' do
@@ -51,7 +50,6 @@ RSpec.describe User, type: :model do
   describe '本人情報確認' do
     before do
       @user = FactoryBot.build(:user)
-      # @user = FactoryBot.create(:user)
     end
 
     it 'お名前(全角)は、名字と名前がそれぞれ必須であること。' do
