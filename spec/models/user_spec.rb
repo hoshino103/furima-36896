@@ -45,12 +45,6 @@ RSpec.describe User, type: :model do
       @user.valid?
       expect(@user.errors.full_messages).to include("Password confirmation doesn't match Password")
     end
-  end
-
-  describe '本人情報確認' do
-    before do
-      @user = FactoryBot.build(:user)
-    end
 
     it 'お名前(全角)は、名字と名前がそれぞれ必須であること。' do
       @user.family_name = ''
