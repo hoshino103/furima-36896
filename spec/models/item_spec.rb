@@ -36,7 +36,7 @@ RSpec.describe Item, type: :model do
       it 'カテゴリーの情報が--以外であること' do
         @item.category_id = '--'
         @item.valid?
-        expect(@item.errors.full_messages).to include("Category is not a number")
+        expect(@item.errors.full_messages).to include('Category is not a number')
       end
       it '商品の状態の情報が必須であること' do
         @item.status_id = ''
@@ -46,7 +46,7 @@ RSpec.describe Item, type: :model do
       it '商品の状態の情報が--以外であること' do
         @item.status_id = '--'
         @item.valid?
-        expect(@item.errors.full_messages).to include("Status is not a number")
+        expect(@item.errors.full_messages).to include('Status is not a number')
       end
       it '配送料の負担の情報が必須であること' do
         @item.shipping_charge_id = ''
@@ -56,7 +56,7 @@ RSpec.describe Item, type: :model do
       it '配送料の負担の情報が--以外であること' do
         @item.shipping_charge_id = '--'
         @item.valid?
-        expect(@item.errors.full_messages).to include("Shipping charge is not a number")
+        expect(@item.errors.full_messages).to include('Shipping charge is not a number')
       end
       it '発送元の地域の情報が必須であること' do
         @item.prefecture_id = ''
@@ -66,7 +66,7 @@ RSpec.describe Item, type: :model do
       it '発送元の地域の情報が--以外であること' do
         @item.prefecture_id = '--'
         @item.valid?
-        expect(@item.errors.full_messages).to include("Prefecture is not a number")
+        expect(@item.errors.full_messages).to include('Prefecture is not a number')
       end
       it '発送までの日数の情報が必須であること' do
         @item.send_day_id = ''
@@ -76,7 +76,7 @@ RSpec.describe Item, type: :model do
       it '発送までの日数の情報が--以外であること' do
         @item.send_day_id = '--'
         @item.valid?
-        expect(@item.errors.full_messages).to include("Send day is not a number")
+        expect(@item.errors.full_messages).to include('Send day is not a number')
       end
       it '価格の情報が必須であること' do
         @item.price = ''
@@ -101,7 +101,7 @@ RSpec.describe Item, type: :model do
       it '出品者がいない場合' do
         @item.user = nil
         @item.valid?
-        expect(@item.errors.full_messages).to include("User must exist")
+        expect(@item.errors.full_messages).to include('User must exist')
       end
     end
   end
