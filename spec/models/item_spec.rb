@@ -33,25 +33,50 @@ RSpec.describe Item, type: :model do
         @item.valid?
         expect(@item.errors.full_messages).to include("Category can't be blank")
       end
+      it 'カテゴリーの情報が--以外であること' do
+        @item.category_id = '--'
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Category is not a number")
+      end
       it '商品の状態の情報が必須であること' do
         @item.status_id = ''
         @item.valid?
         expect(@item.errors.full_messages).to include("Status can't be blank")
+      end
+      it '商品の状態の情報が--以外であること' do
+        @item.status_id = '--'
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Status is not a number")
       end
       it '配送料の負担の情報が必須であること' do
         @item.shipping_charge_id = ''
         @item.valid?
         expect(@item.errors.full_messages).to include("Shipping charge can't be blank")
       end
+      it '配送料の負担の情報が--以外であること' do
+        @item.shipping_charge_id = '--'
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Shipping charge is not a number")
+      end
       it '発送元の地域の情報が必須であること' do
         @item.prefecture_id = ''
         @item.valid?
         expect(@item.errors.full_messages).to include("Prefecture can't be blank")
       end
+      it '発送元の地域の情報が--以外であること' do
+        @item.prefecture_id = '--'
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Prefecture is not a number")
+      end
       it '発送までの日数の情報が必須であること' do
         @item.send_day_id = ''
         @item.valid?
         expect(@item.errors.full_messages).to include("Send day can't be blank")
+      end
+      it '発送までの日数の情報が--以外であること' do
+        @item.send_day_id = '--'
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Send day is not a number")
       end
       it '価格の情報が必須であること' do
         @item.price = ''
