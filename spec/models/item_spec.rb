@@ -46,7 +46,7 @@ RSpec.describe Item, type: :model do
       it '商品の状態の情報が--以外であること' do
         @item.status_id = 1
         @item.valid?
-        expect(@item.errors.full_messages).to include("Status must be other than 1")
+        expect(@item.errors.full_messages).to include('Status must be other than 1')
       end
       it '配送料の負担の情報が必須であること' do
         @item.shipping_charge_id = ''
@@ -66,7 +66,7 @@ RSpec.describe Item, type: :model do
       it '発送元の地域の情報が--以外であること' do
         @item.prefecture_id = 0
         @item.valid?
-        expect(@item.errors.full_messages).to include("Prefecture must be other than 0")
+        expect(@item.errors.full_messages).to include('Prefecture must be other than 0')
       end
       it '発送までの日数の情報が必須であること' do
         @item.send_day_id = ''
