@@ -77,6 +77,11 @@ RSpec.describe BoughtAddress, type: :model do
         @bought_address.valid?
         expect(@bought_address.errors.full_messages).to include("Item can't be blank")
       end
+      it "tokenが空では登録できないこと" do
+        @bought_address.token = nil
+        @bought_address.valid?
+        expect(@bought_address.errors.full_messages).to include("Token can't be blank")
+      end
 
 
 
