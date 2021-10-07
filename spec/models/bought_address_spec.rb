@@ -25,12 +25,12 @@ RSpec.describe BoughtAddress, type: :model do
       it '郵便番号が-無しの場合保存できない' do
         @bought_address.post_num = '1234567'
         @bought_address.valid?
-        expect(@bought_address.errors.full_messages).to include("Post num is invalid")
+        expect(@bought_address.errors.full_messages).to include('Post num is invalid')
       end
       it '郵便番号が全角の場合保存できない' do
         @bought_address.post_num = '１２３ー４５６７'
         @bought_address.valid?
-        expect(@bought_address.errors.full_messages).to include("Post num is invalid")
+        expect(@bought_address.errors.full_messages).to include('Post num is invalid')
       end
       it '都道府県が空の場合保存できない' do
         @bought_address.prefecture_id = ''
@@ -40,7 +40,7 @@ RSpec.describe BoughtAddress, type: :model do
       it '都道府県が--の場合保存できない' do
         @bought_address.prefecture_id = 0
         @bought_address.valid?
-        expect(@bought_address.errors.full_messages).to include("Prefecture must be other than 0")
+        expect(@bought_address.errors.full_messages).to include('Prefecture must be other than 0')
       end
       it '市町村が空の場合保存できない' do
         @bought_address.municipalities = ''
@@ -60,12 +60,17 @@ RSpec.describe BoughtAddress, type: :model do
       it '電話番号が-ありの場合保存できない' do
         @bought_address.phone_num = '090-1234-5678'
         @bought_address.valid?
-        expect(@bought_address.errors.full_messages).to include("Phone num is invalid")
+        expect(@bought_address.errors.full_messages).to include('Phone num is invalid')
       end
       it '電話番号が全角の場合保存できない' do
         @bought_address.phone_num = '０９０１２３４５６７８'
         @bought_address.valid?
-        expect(@bought_address.errors.full_messages).to include("Phone num is invalid")
+        expect(@bought_address.errors.full_messages).to include('Phone num is invalid')
+      end
+      it '電話番号は、10桁以上11桁以内の条件以外、保存できない' do
+        @bought_address.phone_num = '090123456789'
+        @bought_address.valid?
+        expect(@bought_address.errors.full_messages).to include('Phone num is invalid')
       end
       it 'userが紐付いていないと保存できないこと' do
         @bought_address.user_id = nil
@@ -77,14 +82,11 @@ RSpec.describe BoughtAddress, type: :model do
         @bought_address.valid?
         expect(@bought_address.errors.full_messages).to include("Item can't be blank")
       end
-      it "tokenが空では登録できないこと" do
+      it 'tokenが空では登録できないこと' do
         @bought_address.token = nil
         @bought_address.valid?
         expect(@bought_address.errors.full_messages).to include("Token can't be blank")
       end
-
-
-
     end
   end
 end
