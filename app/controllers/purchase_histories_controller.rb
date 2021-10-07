@@ -1,25 +1,39 @@
 class PurchaseHistoriesController < ApplicationController
-  def index
-    @bought_address = BoughtAddress.new
-    @item = Item.find(params[:item_id])
-  end
+  before_action :set_item, only: [:index, :create]
+  
+    def index
+      @bought_address = BoughtAddress.new
+      @item = Item.find(params[:item_id])
+    end
+  
+    def create
+      @bought_address = BoughtAddress.new(bought_address_params)
+      if @bought_address.valid?
+         pay_item
+         @bought_address.save
+         redirect_to root_path
+      else
+         @item = Item.find(params[:item_id])
+         render :index
+      end
+    end
 
-  def create
-    @bought_address = BoughtAddress.new(bought_address_params)
-    if @bought_address.valid?
-       @bought_address.save
-       redirect_to root_path
-    else
-       @item = Item.find(params[:item_id])
-       render :index
+    private
+  
+    def bought_address_params
+      params.require(:bought_address).permit(:post_num, :prefecture_id, :municipalities, :street_number, :bought_address, :phone_num).merge(user_id: current_user.id, item_id: params[:item_id], token: params[:token])
+    end
+  
+    def pay_item
+      Payjp.api_key = ENV["PAYJP_SECRET_KEY"]
+      Payjp::Charge.create(
+        amount: @item.price,
+        card: bought_address_params[:token],
+        currency: 'jpy'     
+      )
+    end
+  
+    def set_item
+      @item = Item.find(params[:item_id])
     end
   end
-
-  private
-
-  def bought_address_params
-    params.require(:bought_address).permit(:post_num, :prefecture_id, :municipalities, :street_number, :bought_address, :phone_num).merge(user_id: current_user.id, item_id: params[:item_id])
-  end
-
-
-end
