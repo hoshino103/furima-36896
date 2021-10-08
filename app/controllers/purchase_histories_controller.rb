@@ -5,7 +5,6 @@ class PurchaseHistoriesController < ApplicationController
 
   def index
     @bought_address = BoughtAddress.new
-    @item = Item.find(params[:item_id])
   end
 
   def create
