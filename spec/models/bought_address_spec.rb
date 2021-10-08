@@ -3,9 +3,14 @@ require 'rails_helper'
 RSpec.describe BoughtAddress, type: :model do
   describe '購入者情報の保存' do
     before do
-      user = FactoryBot.create(:user)
-      @bought_address = FactoryBot.build(:bought_address)
+      @user = FactoryBot.create(:user)
+      @user1 = FactoryBot.create(:user)
+      @item = FactoryBot.build(:item, user_id: @user1.id)
+      @item.save
+      @bought_address = FactoryBot.build(:bought_address, user_id: @user.id, item_id: @item.id)
+      sleep 0.1
     end
+
     context '内容に問題がない場合' do
       it '全て正しい入力ができていれば保存できる' do
         expect(@bought_address).to be_valid
@@ -15,7 +20,6 @@ RSpec.describe BoughtAddress, type: :model do
         expect(@bought_address).to be_valid
       end
     end
-
     context '内容に問題がある場合' do
       it '郵便番号が空の場合保存できない' do
         @bought_address.post_num = ''
