@@ -5,16 +5,16 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :items
-  # has_many :purchase_histories
+  has_many :purchase_histories
 
   validates :name, presence: true
   validates :password, format: { with: /\A(?=.*?[a-z])(?=.*?\d)[a-z\d]+\z/i }
 
-  with_options presence: true, format: { with: /\A[ぁ-んァ-ヶ一-龥々ー]+\z/ } do
+  with_options presence: true, format: { with: /\A[ぁ-んァ-ヶ一-龥々ー]+\z/, message: "漢字、ひらがな、カタカナで入力してください"} do
     validates :family_name
     validates :first_name
   end
-  with_options presence: true, format: { with: /\A[ァ-ヶー]+\z/ } do
+  with_options presence: true, format: { with: /\A[ァ-ヶー]+\z/ , message: "カタカナで入力してください"} do
     validates :family_name_kana
     validates :first_name_kana
   end
